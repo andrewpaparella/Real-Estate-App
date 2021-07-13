@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<form id="new-realtor-form" action="/realtors" method="POST">
+    <label>Name</label>
+    <input type="text" name="name"><br>
+    <label>Phone Number</label>
+    <input type="number" name="phoneNumber"><br>
+    <label>Email</label>
+    <input type="text" name="email"><br>
+    <label>Company</label>
+    <input type="text" name="company"><br>
+    <button type="submit">Save Realtor
+    </button>
+</form>
+<%- include('../partials/footer') %>

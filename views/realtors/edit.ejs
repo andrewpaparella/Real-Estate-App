@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<form id="edit-realtor-form" action="/realtors/<%= realtor._id%>?_method=PUT" method="POST">
+    <label>Name</label>
+    <input type="text" name="name" value="<%- realtor.name %>"><br>
+    <label>Phone Number</label>
+    <input type="number" name="phoneNumber" value="<%- realtor.phoneNumber %>"><br>
+    <label>Email</label>
+    <input type="text" name="email" value="<%- realtor.email %>"><br>
+    <label>Company</label>
+    <input type="text" name="company" value="<%- realtor.company %>"><br>
+    <button type="submit">Update Realtor
+    </button>
+</form>
+<%- include('../partials/footer') %>

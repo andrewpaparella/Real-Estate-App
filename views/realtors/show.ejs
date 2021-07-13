@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+<section id="show-home">
+    <div>Name</div>
+    <div><%= realtor.name%> </div>
+    <div>Phone Number</div>
+    <div><%= realtor.phoneNumber %> </div>
+    <div>Email</div>
+    <div><%= realtor.email %> </div>
+    <div>Company</div>
+    <div><%= realtor.company %> </div>
+
+    <div>Home Listings:</div>
+    <div><% realtor.home.forEach(function (h) { %></div>
+    <div>Price: $<%= h.price %></div>
+    <div>City: <%= h.city %></div>
+    <div>State: <%= h.state %></div>
+    <div><a href="/homes/<%= h._id %>">Click for Home details</a></div>
+    <% }); %>
+    <div>Comments/Reviews</div>
+    <div><% 
+    realtor.comments.forEach(function (c, idx) { %></div>
+        <div><%= c.content %></div>
+        <div>Rating: <%= c.rating %></div>
+        <div>Recommendation: <%= c.recommendation ? "Yes" : "No" %></div>
+        <div><form action="/realtors/<%= realtor._id %>/comments/<%= c._id %>?_method=delete" method="POST" class="delete-comment-form">
+            <button type="submit">Delete Comment</button></form></div>
+            <% }); %>
+            <a href="/realtors/<%= realtor._id %>/comments/new">Click to add Comment/Review</a>
+<form action="/realtors/<%= realtor._id%>?_method=delete" method="POST" class="delete-realtor-form">
+    <div>Delete Realtor</div>
+    <button type="submit">X</button>
+</form>
+<form action="/realtors/<%= realtor._id%>/edit">
+    <button type="submit">Click to edit Realtor
+    </button>
+</form>
+</section>
+
+
+
+<%- include('../partials/footer') %>

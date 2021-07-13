@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title %></title>
+</head>
+<body>
+  <nav>
+    <!-- <img src="/images/camera.svg"> -->
+    <a href="/realtors/new"
+    <%- title === 'Add Realtor' ? 'class="active"' : '' %>>ADD REALTOR</a>
+    <a href="/realtors" <%- title === 'All Realtors' ? 'class="active"' : '' %>>ALL REALTORS</a>
+    <a href="/homes/new" <%- title === 'Add Home' ? 'class="active"' : '' %>>ADD HOME</a>
+    <a href="/homes" <%- title === 'All Homes' ? 'class="active"' : '' %>>ALL HOMES</a>
+  </nav>
+  <main>
+    <h1><%= title %></h1>

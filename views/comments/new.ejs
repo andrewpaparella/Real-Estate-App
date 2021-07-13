@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<form id="new-comment-form" action="/realtors/<%= realtor._id %>/comments" method="POST">
+    <label>Recommendation:</label>
+    <input type="checkbox" name="recommendation"><br>
+    <label>Context</label>
+    <input type="text" name="content"><br>
+    <label>Rating</label>
+    <select name="rating"><br>
+        <option value="5">5</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <button type="submit">Save Comment/Review
+    </button>
+</form>
+<%- include('../partials/footer') %>

@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<section id="show-comments">
+    <% realtor.comments.forEach(function (c, idx) { %></div>
+        <div><form action="/comments/<%= c._id %>?_method=delete" method="POST" class="delete-comment-form">
+        <div>Review #:<%= idx + 1 %></div>
+        <div><%= c.content %></div>
+        <div>Rating: <%= c.rating %></div>
+        <div>Recommendation: <%= c.recommendation ? "Yes" : "No" %></div>
+            <button type="submit">Delete Comment</button></form></div>
+            <% }); %>
+</form>
+</section>
+
+
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<section id="show-home">
+    <form action="/homes/<%= home._id%>?_method=delete" method="POST" class="delete-home-form">
+    <div>Address</div>
+    <div><%= home.address%> </div>
+    <div>City</div>
+    <div><%= home.city %> </div>
+    <div>State</div>
+    <div><%= home.state %> </div>
+    <div>Price</div>
+    <div><%= home.price %> </div>
+    <div>Square Feet</div>
+    <div><%= home.squareFeet %> </div>
+    <div>Bathrooms</div>
+    <div><%= home.bathrooms %> </div>
+    <div>Bedrooms</div>
+    <div><%= home.bedrooms %> </div>
+    <div>Year Built</div>
+    <div><%= home.yearBuilt %> </div>
+    <div>LotSize</div>
+    <div><%= home.lotsize %> </div>
+    <div>Number of Stories</div>
+    <div><%= home.numberOfStories %> </div>
+    <div>Days on Market</div>
+    <div><%= home.daysOnMarket %> </div>
+    <div>Pool</div>
+    <div><%= home.pool ? "Yes" : "Nope" %> </div>
+    <div>Realtor:</div>
+    <div><% home.realtor.forEach(function (r) { %></div>
+        <div>Name: <%= r.name %></div>
+        <div>Phone Number: <%= r.phoneNumber %></div>
+        <div>Email: <%= r.email %></div>
+        <div>Company: <%= r.company%></div>
+        <div><a href="/realtors/<%= r._id %>">Click for Realtor details</a></div>
+        <% }) %>
+
+        <form action="/homes/<%= home._id %>/realtor" method="POST">
+            <select name="realtorId">
+                <%= realtors.map(r => `
+                <option value="${r._id}">${r.name}</option>
+                `).join('') %>
+            </select>
+            <button type="submit">Add Realtor to Home</button>
+        </form>
+        
+    
+    <div>Delete Home Listing</div>
+    <button type="submit">X</button>
+</form>
+<form action="/homes/<%= home._id%>/edit">
+    <button type="submit">Click to edit Home Listing</button>
+</form>
+</section>
+
+<section id="home-realtor">
+
+</section>
+
+
+<%- include('../partials/footer') %>
