@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// const Db = require("../models/")
 const Home = require("../models/home");
 const Realtor = require("../models/realtor");
 

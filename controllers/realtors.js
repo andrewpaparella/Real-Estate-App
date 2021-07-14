@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-// const Db = require("../models/");
-// incase this doesnt work ^^
 const Realtor = require("../models/realtor");
 
 module.exports = {
@@ -15,7 +13,6 @@ module.exports = {
   create2,
   delete2: deleteComment,
   show2,
-//   addToHome
 };
 
 function newRealtor(req, res) {
@@ -105,7 +102,6 @@ async function create2(req, res) {
 	}
     Realtor.findById(req.params.id, function(err, realtor) {
         realtor.comments.push(req.body);
-        console.log(realtor.comments)
         realtor.save(function(err) {
           res.redirect(`/realtors/${realtor._id}`);
         });
