@@ -1,28 +1,35 @@
 <%- include('../partials/header') %>
     <h1>Realtor Details</h1>
     <section id="show-home">
-        <div>Name: <%= realtor.name%>
-        </div>
-        <div>Phone Number: <%= realtor.phoneNumber %>
-        </div>
-        <div>Email: <%= realtor.email %>
-        </div>
-        <div>Company: <%= realtor.company %>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"><h4>Name: </h4><%= realtor.name%>
+                </div>
+                <div class="col-sm-3"><h4>Phone Number: </h4><%= realtor.phoneNumber %>
+                </div>
+                <div class="col-sm-3"><h4>Email: </h4><%= realtor.email %>
+                </div>
+                <div class="col-sm-3"><h4>Company: </h4><%= realtor.company %>
+                </div>
+            </div>
         </div>
 
         <!-- THIS IS AN ICEBOX FEATURE
     DISPLAY HOMES THAT ARE THE REALTORS LISTINGS -->
         <!-- <div>Home Listings:</div>
     <div>% realtor.home.forEach(function (h) { %></div>
-    <div>Price: $%= h.price %></div>
-    <div>City: %= h.city %></div>
-    <div>State: %= h.state %></div>
-    <div><a href="/homes/%= h._id %>">Click for Home details</a></div>
-    % }); %> -->
+        <div>Price: $%= h.price %></div>
+        <div>City: %= h.city %></div>
+        <div>State: %= h.state %></div>
+        <div><a href="/homes/%= h._id %>">Click for Home details</a></div>
+        % }); %> -->
+        <form action="/realtors/<%= realtor._id%>/edit">
+            <button type="submit">Click to edit Realtor</button>
+        </form>
         <div class="blog">
             <div class="container">
                 <div class="row">
-                    <div>Comments/Reviews:</div>
+                    <div class="text-center">Comments/Reviews:</div>
                         <% realtor.comments.forEach(function (c, idx) { %>
                             <div class="col-md-4 col-lg-4 col-sm-12">
                                 <div class="card">
@@ -51,13 +58,12 @@
             </div>
         </div>
         <a href="/realtors/<%= realtor._id %>/comments/new">Click to add Comment/Review</a>
-        <form action="/realtors/<%= realtor._id%>?_method=delete" method="POST" class="delete-realtor-form">
-            <div>Delete Realtor</div>
-            <button type="submit">X</button>
-        </form>
-        <form action="/realtors/<%= realtor._id%>/edit">
-            <button type="submit">Click to edit Realtor</button>
-        </form>
+        <div class="text-center">
+            <form action="/realtors/<%= realtor._id%>?_method=delete" method="POST" class="delete-realtor-form">
+                <div>Delete Realtor</div>
+                <button type="submit">X</button>
+            </form>
+       </div>
     </section>
 
     <%- include('../partials/footer') %>
