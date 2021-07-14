@@ -15,15 +15,37 @@
         <div class="col-sm">Days on Market: <%= home.daysOnMarket %> </div>
         <div class="col-sm">Pool: <%= home.pool ? "Yes" : "Nope" %> </div>
     </div>
-    <div>Realtor:</div>
-    <div><% realtor.realtor.forEach(function (r) { %>
-        <div>Name: <%= r.name %></div>
-        <div>Phone Number: <%= r.phoneNumber %></div>
-        <div>Email: <%= r.email %></div>
-        <div>Company: <%= r.company%></div>
-        <div><a href="/realtors/<%= r._id %>">Click for Realtor details</a></div>
-        <% }) %>
+</section>
+<main>
+    <h1 class="text-center">Realtors</h1>
+  <div class="blog">
+    <div class="container">
+      <div class="row">
+        <% realtor.realtor.forEach(function(r) { %>
+          <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+              <div class="card-img">
+                <!-- <img src="/headerback.jpeg" class="img-fluid"> -->
+              </div>
+              <div class="card-body">
+                  <h4 class="card-title"><%= r.name %></h4>
+                  <p class="card-text">
+                    <br>Email: <%= r.email %></br>
+                    <br>Phone Number: #<%= r.phoneNumber %></br>
+                    <br>Company: <%= r.company %></br>
+                  </p>
+                </div>
+              <div class="card-footer">
+                  <a class="card-link" href="/realtors/<%= r._id %>">DETAILS</a></br>
+                </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
     </div>
+  </div>
+</main>  
         <form action="/homes/<%= home._id%>?_method=delete" method="POST" class="delete-home-form">
         <div>Delete Home Listing</div>
         <button type="submit">X</button>
@@ -31,7 +53,6 @@
 <form action="/homes/<%= home._id%>/edit">
     <button type="submit">Click to edit Home Listing</button>
 </form>
-</section>
 
 <section id="home-realtor">
 
