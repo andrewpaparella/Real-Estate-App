@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const homes = require('../controllers/homes')
 
 const Schema = mongoose.Schema;
 

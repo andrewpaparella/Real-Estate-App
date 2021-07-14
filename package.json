@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bootstrap": "^5.0.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
@@ -14,6 +15,7 @@
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.2",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "startbootstrap-simple-sidebar": "^6.0.2"
   }
 }

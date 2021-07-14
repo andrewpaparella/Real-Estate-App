@@ -1,29 +1,20 @@
 <%- include('../partials/header') %>
+<h1>Home Details</h1>
 <section id="show-home">
-    <div>Address</div>
-    <div><%= home.address%> </div>
-    <div>City</div>
-    <div><%= home.city %> </div>
-    <div>State</div>
-    <div><%= home.state %> </div>
-    <div>Price</div>
-    <div><%= home.price %> </div>
-    <div>Square Feet</div>
-    <div><%= home.squareFeet %> </div>
-    <div>Bathrooms</div>
-    <div><%= home.bathrooms %> </div>
-    <div>Bedrooms</div>
-    <div><%= home.bedrooms %> </div>
-    <div>Year Built</div>
-    <div><%= home.yearBuilt %> </div>
-    <div>LotSize</div>
-    <div><%= home.lotsize %> </div>
-    <div>Number of Stories</div>
-    <div><%= home.numberOfStories %> </div>
-    <div>Days on Market</div>
-    <div><%= home.daysOnMarket %> </div>
-    <div>Pool</div>
-    <div><%= home.pool ? "Yes" : "Nope" %> </div>
+    <div class="row">
+        <div class="col-sm">Address: <%= home.address%> </div>
+        <div class="col-sm">City: <%= home.city %> </div>
+        <div class="col-sm">State: <%= home.state %> </div>
+        <div class="col-sm">Price: $<%= home.price %> </div>
+        <div class="col-sm">Square Feet: <%= home.squareFeet %> </div>
+        <div class="col-sm">Bathrooms: <%= home.bathrooms %> </div>
+        <div class="col-sm">Bedrooms: <%= home.bedrooms %> </div>
+        <div class="col-sm">Year Built: <%= home.yearBuilt %> </div>
+        <div class="col-sm">LotSize: <%= home.lotsize %> </div>
+        <div class="col-sm">Number of Stories: <%= home.numberOfStories %> </div>
+        <div class="col-sm">Days on Market: <%= home.daysOnMarket %> </div>
+        <div class="col-sm">Pool: <%= home.pool ? "Yes" : "Nope" %> </div>
+    </div>
     <div>Realtor:</div>
     <div><% realtor.realtor.forEach(function (r) { %>
         <div>Name: <%= r.name %></div>

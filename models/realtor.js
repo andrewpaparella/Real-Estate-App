@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const realtors = require('../controllers/realtors')
 
 
 const Schema = mongoose.Schema;
@@ -32,12 +31,6 @@ const realtorSchema = new Schema (
             type: String
         },
         comments: [commentsSchema],
-        home: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Home'
-            }
-        ]
     },
     {
         timestamps: true

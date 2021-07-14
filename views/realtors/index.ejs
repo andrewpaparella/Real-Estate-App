@@ -1,24 +1,34 @@
 <%- include('../partials/header') %>
-<table id="list">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Company</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% realtors.forEach(function(r) { %>
-      <tr>
-        <td><%= r.name%></td>
-        <td><%= r.phoneNumber %></td>
-        <td><%= r.email %></td>
-        <td><%= r.company %></td>
-        <td><a href="/realtors/<%= r._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
+<main>
+  <h1 class="text-center">Realtors</h1>
+  <div class="blog">
+    <div class="container">
+      <div class="row">
+        <% realtors.forEach(function(r) { %>
+          <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+              <div class="card-img">
+                <!-- <img src="/headerback.jpeg" class="img-fluid"> -->
+              </div>
+              <div class="card-body">
+                  <h4 class="card-title"><%= r.name %></h4>
+                  <p class="card-text">
+                    <br>Email: <%= r.email %></br>
+                    <br>Phone Number: #<%= r.phoneNumber %></br>
+                    <br>Company: <%= r.company %></br>
+                  </p>
+                </div>
+              <div class="card-footer">
+                  <a class="card-link" href="/realtors/<%= r._id %>">DETAILS</a></br>
+                </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+</main>
   
 <%- include('../partials/footer') %>

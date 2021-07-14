@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title><%= title %></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>
+    <%= title %>
+  </title>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
 </head>
+
 <body>
-  <nav>
-    <!-- <img src="/images/camera.svg"> -->
-    <a href="/realtors/new"
-    <%- title === 'Add Realtor' ? 'class="active"' : '' %>>ADD REALTOR</a>
-    <a href="/realtors" <%- title === 'All Realtors' ? 'class="active"' : '' %>>ALL REALTORS</a>
-    <a href="/homes/new" <%- title === 'Add Home' ? 'class="active"' : '' %>>ADD HOME</a>
-    <a href="/homes" <%- title === 'All Homes' ? 'class="active"' : '' %>>ALL HOMES</a>
-  </nav>
-  <main>
-    <h1><%= title %></h1>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+      <div class="sidebar-heading border-bottom bg-light">
+        Real Estate App
+      </div>
+      <div class="list-group list-group-flush">
+        <a class="
+              list-group-item list-group-item-action list-group-item-light
+              p-3
+            " href="/realtors/new">Add Realtor</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-light
+              p-3
+            " href="/realtors">Show Realtors</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-light
+              p-3
+            " href="/homes/new">Add Home</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-light
+              p-3
+            " href="/homes">Show Homes</a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <main id="page-content-wrapper">
+      <!-- Top navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+          <button class="btn btn-primary" id="sidebarToggle">
+            Toggle Menu
+          </button>
+        </div>
+      </nav>
+
