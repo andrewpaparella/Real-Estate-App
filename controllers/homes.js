@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+// const Db = require("../models/")
 const Home = require('../models/home')
 // const Realtor = require('../models/realtor')
+
 
 module.exports = {
     index,
@@ -10,7 +12,6 @@ module.exports = {
     delete: deleteHome,
     edit,
     update,
-    // addToHome
 }
 
 async function index(req,res) {
@@ -27,21 +28,28 @@ async function index(req,res) {
 
 async function show(req,res) {
     try {
-        const home = await Home.findById(req.params.id)
-        res.render('homes/show',{
-            title: 'Home Detail',
-            home
+        const home = await Home.findById(req.params.id);
+        const realtor = await Home.findById(req.params.id).populate('realtor').exec(function (err, realtor) {
+            console.log(realtor.realtor)
+            res.render('homes/show',{
+                home,
+                title: 'Home Detail',
+                realtor,
+            })
         })
     } catch (err) {
         res.send(err)
     }
 }
 
-function newHome(req,res) {
-    res.render('homes/new', {title: 'Add Home'})
+async function newHome(req,res) {
+    const realtor = await Realtor.find({})
+    console.log(realtor)
+    res.render('homes/new', {title: 'Add Home', realtor})
 }
 
 async function create(req,res) {
+    const realtor = await Realtor.find({})
     req.body.pool = !!req.body.pool;
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key]
@@ -49,8 +57,8 @@ async function create(req,res) {
     const homeNew = req.body
     const home = await Home.create(homeNew);
     home.save(function (err) {
-        if (err) return res.render(`homes/new`, {title: 'Add Home'})
-        res.redirect('homes')
+        if (err) return res.render(`homes/new`, {title: 'Add Home'});
+        res.redirect('/homes')
     })
 }
 
@@ -92,13 +100,3 @@ async function update(req,res) {
     }
 }
 
-// async function addToHome(req,res) {
-//     const realtors = await Realtor.find({})
-//     const home = await Home.findById(req.params.id)
-//     home.realtor.push(req.body.realtorId)
-//     home.save(function (err) {
-//         res.redirect(`/homes/${home._id}`, {
-//             realtors
-//         })
-//     })
-// }

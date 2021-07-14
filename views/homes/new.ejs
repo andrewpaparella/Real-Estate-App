@@ -76,6 +76,12 @@
     <input type="number" name="daysOnMarket"><br>
     <label>Swimming Pool</label>
     <input type="checkbox" name="pool"><br>
+    <label>Realtor</label>
+        <select name="realtor">
+            <% realtor.forEach(r => { %>
+            <option value=<%=r._id%>><%=r.name%></option>
+           <% }) %>
+        </select>
     <button type="submit">Create Home Listing</button>
 </form>
 <%- include('../partials/footer') %>

@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-// const Realtor= require("../models");
+// const Db = require("../models/");
 // incase this doesnt work ^^
 const Realtor = require("../models/realtor");
-// const Home = require("../models/home");
 
 module.exports = {
   new: newRealtor,
@@ -25,7 +24,7 @@ function newRealtor(req, res) {
 
 async function create(req, res) {
   const realtorNew = req.body;
-  const realtor = await Db.Realtor.create(realtorNew);
+  const realtor = await Realtor.create(realtorNew);
   realtor.save(function (err) {
       if (err) return res.render(`realtors/new`, { title: "Add Realtor" });
       res.redirect("/realtors");
