@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-3"><h4>Name: </h4><%= realtor.name%>
                 </div>
-                <div class="col-sm-3"><h4>Phone Number: </h4><%= realtor.phoneNumber %>
+                <div class="col-sm-3"><h4>Phone Number: </h4>#<%= realtor.phoneNumber %>
                 </div>
                 <div class="col-sm-3"><h4>Email: </h4><%= realtor.email %>
                 </div>
@@ -24,7 +24,7 @@
         <div><a href="/homes/%= h._id %>">Click for Home details</a></div>
         % }); %> -->
         <form action="/realtors/<%= realtor._id%>/edit">
-            <button type="submit">Click to edit Realtor</button>
+            <button class="btn btn-primary" type="submit">Click to edit Realtor</button>
         </form>
         <div class="blog">
             <div class="container">
@@ -46,7 +46,7 @@
                                     <div class="card-footer">
                                         <form action="/realtors/<%= realtor._id %>/comments/<%= c._id %>?_method=delete"
                                             method="POST" class="delete-comment-form">
-                                            <button type="submit">Delete Comment</button>
+                                            <button class="btn btn-primary" type="submit">Delete Comment</button>
                                         </form>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
         <div class="text-center">
             <form action="/realtors/<%= realtor._id%>?_method=delete" method="POST" class="delete-realtor-form">
                 <div>Delete Realtor</div>
-                <button type="submit">X</button>
+                <button class="btn btn-primary" type="submit">X</button>
             </form>
        </div>
     </section>
