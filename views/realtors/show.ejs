@@ -13,25 +13,45 @@
                 </div>
             </div>
         </div>
-
-        <!-- THIS IS AN ICEBOX FEATURE
-    DISPLAY HOMES THAT ARE THE REALTORS LISTINGS -->
-        <!-- <div>Home Listings:</div>
-    <div>% realtor.home.forEach(function (h) { %></div>
-        <div>Price: $%= h.price %></div>
-        <div>City: %= h.city %></div>
-        <div>State: %= h.state %></div>
-        <div><a href="/homes/%= h._id %>">Click for Home details</a></div>
-        % }); %> -->
         <div class="text-center">
         <form action="/realtors/<%= realtor._id%>/edit">
             <button class="btn btn-primary" type="submit">Click to edit Realtor</button>
         </form>
+
+        <!-- THIS IS AN ICEBOX FEATURE
+    DISPLAY HOMES THAT ARE THE REALTORS LISTINGS -->
+    <h3 class="text-center">Homes being sold by <% realtor.name%></h3>
+    <div class="blog">
+      <div class="container">
+        <div class="row">
+          <% homes.forEach(function(h) { %>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><%= h.address %></h4>
+                    <p class="card-text">
+                      <br>Price: $<%= h.price %></br>
+                      <br>City: <%= h.city %> <br> State: <%= h.state %></br>
+                      <br>Square feet: <%= h.squareFeet %></br>
+                      <br>Bathrooms:<%= h.bathrooms %> <br> Bedrooms: <%= h.bedrooms %></br>
+                    </p>
+                  </div>
+                <div class="card-footer">
+                    <form action="/homes/<%= h._id %>">
+                    <button class="card-link btn btn-primary">DETAILS</a></br>
+                    </form>
+                  </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
         </div>
+      </div>
+    </div>
         <div class="blog">
             <div class="container">
                 <div class="row">
-                    <div class="text-center"><h2>Comments/Reviews:</h2></div>
+                    <div class="text-center"><h3>Comments/Reviews:</h3></div>
                         <% realtor.comments.forEach(function (c, idx) { %>
                             <div class="col-md-4 col-lg-4 col-sm-12">
                                 <div class="card">

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Realtor = require("../models/realtor");
+const Home = require("../models/home");
 
 module.exports = {
   new: newRealtor,
@@ -40,16 +41,21 @@ async function index(req, res) {
   }
 }
 
+
+
+
 async function show(req, res) {
   try {
-    const realtor = await Realtor.findById(req.params.id);
-    res.render("realtors/show", {
-      title: "Realtor Detail",
-      realtor,
-    });
+    const realtor = await Realtor.findById(req.params.id)
+    const homes = await Home.find({realtor: req.params.id})
+      res.render("realtors/show", {
+        title: "Realtor Detail",
+        realtor,
+        homes
+      })
   } catch (err) {
     res.send(err);
-  }
+    }
 }
 
 async function deleteRealtor(req, res) {
