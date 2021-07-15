@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h1>Home Details</h1>
+<div class="text-center"><h1>Home Details</h1></div>
 <section id="show-home">
     <div class="row">
         <div class="col-sm-2"><h4>Address:</h4> <%= home.address%> </div>
@@ -17,13 +17,11 @@
     </div>
 </section>
 <main>
-    <form action="/homes/<%= home._id%>?_method=delete" method="POST" class="delete-home-form">
-    <div>Delete Home Listing</div>
-    <button class="btn btn-primary" type="submit">X</button>
-    </form>
+    <div class="text-center">
     <form action="/homes/<%= home._id%>/edit">
     <button class="btn btn-primary" type="submit">Click to edit Home Listing</button>
     </form>
+    </div>
     <h1 class="text-center">Realtors</h1>
   <div class="blog">
     <div class="container">
@@ -48,12 +46,18 @@
             </div>
           </div>
           <% }); %>
+          <div class="text-center">
+          <form action="/homes/<%= home._id%>?_method=delete" method="POST" class="delete-home-form">
+              <div><h4>Delete Home Listing</h4></div>
+              <button class="btn btn-primary" type="submit">X</button>
+              </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</main>  
+</div>
 
+</main>  
 <section id="home-realtor">
 
 </section>
